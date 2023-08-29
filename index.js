@@ -1,13 +1,14 @@
 import  express from "express";
 import { studentRouter } from "./ROUTER/student.js";
-
+import dotenv from "dotenv";
 // initializing express server
 const app = express();
- 
 
+//environmental configuration
+dotenv.config();
 
 //port name
-const port = 6666;
+const port = process.env.PORT; 
 
 //middleWare
 app.use(express.json());

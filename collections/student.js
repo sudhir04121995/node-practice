@@ -26,7 +26,7 @@ export function addStudents(data){
 
 export function editStudentById(id,data){
     return client
-    .db("bootcamp")
+    .db("bootcam")
     .collection("StudentList")
     .findOneAndUpdate({_id: new ObjectId(id)},{$set:data})
 }
