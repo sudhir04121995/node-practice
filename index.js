@@ -1,6 +1,9 @@
 import  express from "express";
+ import cors from "cors";
 import { studentRouter } from "./ROUTER/student.js";
 import dotenv from "dotenv";
+import { userRouter } from "./user.js";
+
 // initializing express server
 const app = express();
 
@@ -12,10 +15,11 @@ const port = process.env.PORT;
 
 //middleWare
 app.use(express.json());
+app.use(cors())
 
 //application route
 app.use("/students",studentRouter)
-
+app.use("/user", userRouter)
 
 //Listen port
 app.listen(port,()=>console.log(`server started in localhost:${port}`));
