@@ -2,7 +2,9 @@ import  express from "express";
  import cors from "cors";
 import { studentRouter } from "./ROUTER/student.js";
 import dotenv from "dotenv";
-import { userRouter } from "./user.js";
+import { userRouter } from "./ROUTER/user.js";
+import { isAuthenticated } from "./Authentication/auth.js";
+
 
 // initializing express server
 const app = express();
@@ -18,7 +20,7 @@ app.use(express.json());
 app.use(cors())
 
 //application route
-app.use("/students",studentRouter)
+app.use("/students",isAuthenticated,studentRouter)
 app.use("/user", userRouter)
 
 //Listen port
